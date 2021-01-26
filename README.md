@@ -65,7 +65,10 @@ node . srt://host:port rtmp://blah
 
 # Additional notes
 
-The operator can control overlays from a browser by opening the [admin interface](http://localhost:3000/admin).
+The operator can control overlays from a browser by opening the [admin
+interface](http://localhost:3000/admin). By default the pipeline starts paused.
+Broadcasting can be started from the admin UI (General section, untick the
+`Pause stream` check-box).
 
 The stream preview accessible from the admin UI is an HLS stream encoded in
 H.264 and AAC, a browser supporting these codecs is required, Safari should be
