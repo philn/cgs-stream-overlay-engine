@@ -24,7 +24,25 @@ Make sure to not install the Ubuntu libwpebackend-fdo-dev package because the
 version shipped in Ubuntu 20.10 doesn't support headless rendering. gst-build
 should thus fallback to wpebackend-fdo as a subproject during the build.
 
-# Streamer build
+# Toy container setup
+
+This was tested with [podman](https://podman.io) but should also work with Docker.
+
+## Build
+
+```shell
+podman build -t cgs .
+```
+
+## Run
+
+```shell
+podman run -it -p 3000:3000 -t cgs . srt://foo rtmp://bar
+```
+
+# Old fashioned way
+
+## Streamer build
 
 Install [Neon](https://neon-bindings.com):
 
@@ -38,12 +56,14 @@ And then, build the project:
 neon build --release
 ```
 
-# How to run this
+## How to run this
 
 ```shell
 export LIBGL_ALWAYS_SOFTWARE=true
 node . srt://host:port rtmp://blah
 ```
+
+# Additional notes
 
 The operator can control overlays from a browser by opening the [admin interface](http://localhost:3000/admin).
 
@@ -59,4 +79,4 @@ This is a list of the potential improvements that could be made.
 - admin UI to configure SRT and RTMP URLs
 - fallback-switch support
 - GL-backed pipeline, if the host has a capable GPU and `LIBGL_ALWAYS_SOFTWARE` is not set.
-- Docker file for easier testing and deployment
+
