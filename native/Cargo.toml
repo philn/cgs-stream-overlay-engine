@@ -15,7 +15,7 @@ crate-type = ["cdylib"]
 neon-build = "0.7.0"
 
 [dependencies]
-neon = { version = "0.7.0", features = ["default-panic-hook"] }
+neon = "0.7.0"
 glib = "0.10"
 gstreamer = { version = "0.16", features = ["v1_16"] }
 gstreamer-base = { version = "0.16", features = ["v1_16"] }
