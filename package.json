@@ -1,0 +1,16 @@
+{
+  "name": "cgs-stream-overlay-engine",
+  "version": "0.1.0",
+  "description": "CGS Stream Overlay Engine",
+  "main": "wpe-graphics-overlays/server.js",
+  "author": "Philippe Normand <philn@igalia.com>",
+  "license": "MIT",
+  "dependencies": {
+    "wpe-graphics-overlays": "file:wpe-graphics-overlays",
+    "log-symbols": "^2.2.0",
+    "neon-cli": "^0.7.0"
+  },
+  "scripts": {
+    "install": "neon build"
+  }
+}

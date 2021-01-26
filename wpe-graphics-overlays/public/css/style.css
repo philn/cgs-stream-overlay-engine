@@ -1,0 +1,45 @@
+html, body {
+    height: 100%;
+    font-size: 15px;
+    background-color: #eee;
+}
+
+html, body {
+    font-family: "Helvetica Neue", Arial, Helvetica, sans-serif !important;
+}
+
+#brand {
+	margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+.pad-20 {
+	padding-top: 20px;
+}
+
+.cap-width {
+	max-width: 800px;
+}
+
+.ui.form .fields .field,
+.ui.form .field {
+    margin-bottom: 0px;
+}
+
+.lt-edit-input {
+    border: 1px solid rgba(34, 36, 38, 0.15);
+    border-radius: 0.28571429rem;
+    margin-bottom: 5px;
+}
+
+
+/**************************************************/
+/*              [Fix Semantic]                    */
+/**************************************************/
+
+@media only screen and (min-width: 1920px) {
+  .ui.page.grid {
+    padding-left: 0% !important;
+    padding-right: 0% !important;
+  }
+}

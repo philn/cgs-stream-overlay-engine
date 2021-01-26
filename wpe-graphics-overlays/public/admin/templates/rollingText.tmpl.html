@@ -1,0 +1,51 @@
+<div class="ui form segment">
+    <h2>Rolling Text</h2>
+    <form name="rollingTextsForm" method="post">
+        <div class="one wide fields">
+            <div class="field">
+                <label for="Item">Item</label>
+                <input id="Item" placeholder="Item" type="text" ng-trim="true" ng-model="rollingText.item"/>
+            </div>
+        </div>
+	      <br>
+        <div class="right floated right aligned six wide column">
+            <div class="ui blue button" ng-click="add(rollingText)" ng-disabled="rollingTextsForm.$invalid" >Add</div>
+            <div class="ui red button" ng-click="hideall()">Hide All</div>
+        </div>
+    </form>
+</div>
+
+<div class="ui segment" ng-repeat="text in queuedRollingText">
+    <div class="ui grid">
+        <div class="six wide column">
+            <h2 class="left aligned ui header">
+                <i class="list layout icon"></i>
+                <div class="content" ng-if="!text.edit">
+                    <div>{{text.item}}</div>
+                </div>
+                <div class="content" ng-if="text.edit">
+                    <div><input type="text" class="lt-edit-input" ng-model="text.item"></div>
+                </div>
+            </h2>
+        </div>
+
+        <div class="two wide column">
+        </div>
+
+        <div class="two wide column">
+        </div>
+
+        <div class="right aligned six wide column">
+            <div class="ui small buttons">
+                <div class="ui positive button" ng-if="!text.show" ng-click="show(text);text.show=true;">Show</div>
+                <div class="ui negative button" ng-if="text.show" ng-click="hide(text);text.show=false">Hide</div>
+            </div>
+            <div  ng-class="text.edit ? 'green' : 'blue' "class="ui icon small button" ng-click='edit($index)'>
+                <i ng-class="text.edit ? 'save icon' : 'edit icon'"></i>
+            </div>
+            <div class="ui icon red small button" ng-click='remove($index)'>
+                <i class="delete icon"></i>
+            </div>
+        </div>
+    </div>
+</div>
