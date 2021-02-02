@@ -74,6 +74,34 @@ The stream preview accessible from the admin UI is an HLS stream encoded in
 H.264 and AAC, a browser supporting these codecs is required, Safari should be
 able to handle those. Chrome doesn't support native HLS consumption.
 
+# Debugging
+
+If the app doesn't work, the first step is to make sure the SRT stream plays
+fine in GStreamer:
+
+```shell
+podman -it --entrypoint=bash cgs
+GST_DEBUG="3,srt*:6" gst-play-1.0 srt://...
+```
+
+In case the app crashes with this kind of message: `fatal runtime error: failed
+to initiate panic, error 5`, you need to rebuild neon with the default panic
+hook enabled:
+
+```shell
+git revert 41af1bfb156410f462539a37c23f0da7bd0a1e91
+```
+
+Then rebuild the app in debug mode, by removing `--release` from the `neon
+build` command in the Dockerfile. Install gdb in the container and run the app
+inside:
+
+```shell
+gdb -args node . ...
+```
+
+When the crash happens, display the backtrace (`bt` command in gdb).
+
 ## TODO
 
 This is a list of the potential improvements that could be made.
