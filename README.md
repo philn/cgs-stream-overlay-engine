@@ -84,6 +84,10 @@ podman -it --entrypoint=bash cgs
 GST_DEBUG="3,srt*:6" gst-play-1.0 srt://...
 ```
 
+Another thing to test in the app, a raw live stream, instead of the SRT stream.
+This URI can be used to test this scenario:
+`testbin://audio,is-live=1+video,pattern=ball,is-live=1`
+
 In case the app crashes with this kind of message: `fatal runtime error: failed
 to initiate panic, error 5`, you need to rebuild neon with the default panic
 hook enabled:
